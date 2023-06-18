@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3 | Module 3</title>
+</head>
+<body>
+    
+    <script>
+        /* 
+            3.Numbers:
+            a. Write a JavaScript function that takes a positive integer as input and returns true if it is a prime number, otherwise returns false.
+        */
+
+        function isPrime(number) {
+            let prime = true
+            for( let i = 2; i<= parseInt(Math.sqrt(number)); i++ ) {
+                if( number % i === 0 ) {
+                    prime = false
+                    break
+                }
+            }
+
+            return prime
+        }
+
+        /* b. Implement the function to check if a given positive integer is a prime number. */
+        function checkPrime() {
+            let number =  23;
+            if( isPrime(number) ) {
+                document.write(`<h3>${number} is a prime number</h3>`)
+            } else {
+                document.write(`<h3>${number} is not a prime number</h3>`)
+            }
+        }
+
+        checkPrime()
+    </script>
+</body>
+</html>
