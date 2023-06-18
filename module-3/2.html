@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2 | Module 3</title>
+</head>
+<body>
+    
+    <script>
+        /*  2.Math Object:
+
+            a. Write a JavaScript function that takes an array of numbers as input and returns the square root of the sum of squares of all the numbers. Use the Math object to perform the necessary calculations.
+        */
+
+        function getSqutOfSumOfSquare(arr) {
+            let sum = 0
+            for( let number of arr ) {
+                sum += Math.pow(number, 2)
+            }
+
+            return Math.sqrt(sum)
+        }
+
+        /* b. Implement the function to display the square root of the sum of squares for an array of numbers. */
+        function displaySqutOfSumOfSquare() {
+            let numbers = [1, 2, 3, 4];
+            let result = getSqutOfSumOfSquare(numbers);
+
+            document.write(`<h3>Result: ${result}</h3>`);
+        }
+
+        displaySqutOfSumOfSquare();
+    </script>
+</body>
+</html>
