@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5 | Module 3</title>
+</head>
+<body>
+    
+    <script>
+        /* 
+            5.Navigator Object:
+
+            a. Write a JavaScript function that detects the user's browser name and version using the navigator object.
+        */
+       function browserVersion(userAgent,regex) {
+            return userAgent.match(regex) ? userAgent.match(regex)[2] : null;
+        }
+    
+        function detectBrowser(){
+            let browser = {
+                name: "Unknown",
+                version: "0.0.0.0"
+            }
+            let userAgent = navigator.userAgent
+            if( (/ucbrowser/i).test(userAgent) ) {
+                browser.name = "UCBrowser"
+                browser.version = browserVersion(userAgent,/(ucbrowser)\/([\d\.]+)/i)
+            } else if( (/edg/i).test(userAgent) ) {
+                browser.name = "Edge"
+                browser.version = browserVersion(userAgent,/(edge|edga|edgios|edg)\/([\d\.]+)/i)
+            } else if( (/chromium/i).test(userAgent) ) {
+                browser.name = "Chromium"
+                browser.version = browserVersion(userAgent,/(chromium)\/([\d\.]+)/i)
+            } else if( (/firefox|fxios/i).test(userAgent) && !(/seamonkey/i).test(userAgent) ) {
+                browser.name = "Firefox"
+                browser.version = browserVersion(userAgent,/(firefox|fxios)\/([\d\.]+)/i)
+            } else if( (/; msie|trident/i).test(userAgent) && !(/ucbrowser/i).test(userAgent) ) {
+                browser.name = "IE"
+                browser.version = browserVersion(userAgent,/(trident)\/([\d\.]+)/i)
+            } else if ( (/chrome|crios/i).test(userAgent) && !(/opr|opera|chromium|edg|ucbrowser|googlebot/i).test(userAgent) ) {
+                browser.name = "Chrome"
+                browser.version = browserVersion(userAgent,/(chrome|crios)\/([\d\.]+)/i)
+            } else if ( (/safari/i).test(userAgent) && !(/chromium|edg|ucbrowser|chrome|crios|opr|opera|fxios|firefox/i).test(userAgent) ) {
+                browser.name = "Safari"
+                browser.version = browserVersion(userAgent,/(safari)\/([\d\.]+)/i)
+            } else if ( (/opr|opera/i).test(userAgent) ) {
+                browser.name = "Opera"
+                browser.version = browserVersion(userAgent,/(opera|opr)\/([\d\.]+)/i)
+            }
+
+            return browser
+        }
+
+        /* b. Implement the function to display the user's browser name and version. */
+        function showBrowserName() {
+            const browser = detectBrowser()
+            document.write(`<h3>Browser Name: ${browser.name}<br>Version: ${browser.version}</h3>`)
+        }
+        showBrowserName()
+    </script>
+</body>
+</html>
