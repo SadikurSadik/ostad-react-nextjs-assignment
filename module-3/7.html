@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 7 | Module 3</title>
+</head>
+<body>
+    <div>
+        <img height="400" id="img" src="./images/car-a.jpg" alt="">
+    </div>
+    <script>
+        /* 
+            7.JS Common Events:
+
+            Implement a webpage with the following functionality:
+
+            a. When the user clicks anywhere on the page, display an alert with the coordinates (x, y) of the click.
+        */
+        document.addEventListener("click", function(e) {
+            let cursorX = e.pageX;
+            let cursorY= e.pageY;
+
+            alert(`Cordinates(x, y): (${cursorX}, ${cursorY})`)
+        });
+
+        /* b. When the user presses any key on the keyboard, display an alert with the key code of the pressed key. */
+        document.addEventListener("keydown", function(e) {
+            alert(`Key Code: ${e.keyCode}`)
+        })
+
+        /* c. When the user moves the mouse over an image, change the image source to another image of your choice. */
+        const imgElement = document.getElementById("img")
+        imgElement.addEventListener("mouseover", function(e) {
+            let filename = e.target.src.substring(e.target.src.lastIndexOf('/')+1)
+            if( filename === 'car-a.jpg') {
+                e.target.src = './images/car-b.jpg'
+            } else {
+                e.target.src = './images/car-a.jpg'
+            }
+        })
+
+    </script>
+</body>
+</html>
