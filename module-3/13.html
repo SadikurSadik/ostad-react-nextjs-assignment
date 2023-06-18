@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 13 | Module 3</title>
+</head>
+<body>
+    <p class="para">Paragraph 1</p>
+    <p class="para2">Paragraph 2</p>
+    <p class="para3">Paragraph 3</p>
+    <p class="para">Paragraph 4</p>
+    <p class="para">Paragraph 5</p>
+    <p class=""para4>Paragraph 6</p>
+    <p class="para5">Paragraph 7</p>
+    <p class="para6">Paragraph 8</p>
+    <p class="para">Paragraph 9</p>
+    <p class="para7">Paragraph 10</p>
+    <script>
+        /* 
+            13.DOM Query Selector:
+
+            a. Create a webpage with multiple paragraphs containing different classes and IDs.
+
+            b. Implement a JavaScript function that selects all paragraphs with a specific class and changes their text color to red.
+        */
+       function modifyDom() {
+            let pElements = document.getElementsByClassName('para')
+            for(let element of pElements) {
+                element.style.color = 'red'
+            }
+       }
+       modifyDom()
+    </script>
+</body>
+</html>
