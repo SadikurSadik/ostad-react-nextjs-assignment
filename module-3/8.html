@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 8 | Module 3</title>
+</head>
+<body>
+    <button id="btn">Click me</button>
+    <p>It is a paragraph</p>
+    <script>
+        /* 
+            8.HTML DOM Document:
+
+            a. Create a webpage with a button and a paragraph element.
+
+            b. Implement a JavaScript function that changes the text content of the paragraph element to "Button Clicked!" when the button is clicked.
+        */
+        const buttonElement = document.getElementById('btn')
+        const paragraphElement = document.querySelector("p")
+        buttonElement.addEventListener("click", function(e) {
+            paragraphElement.innerText = "Button Clicked!"
+        })
+
+    </script>
+</body>
+</html>
