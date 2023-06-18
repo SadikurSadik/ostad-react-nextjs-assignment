@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 4 | Module 3</title>
+</head>
+<body>
+    
+    <script>
+        /* 
+            4.Window Object:
+
+            a. Create a function that opens a new window with a specified URL and dimensions (width and height).
+        */
+        function openWindow(url, width, height) {
+            window.open(url, "New Window", `width=${width},height=${height}`)
+        }
+
+        /* b. Implement the function to open a new window with the URL "https://www.example.com" and dimensions 800x600. */
+        function openExampleWindow() {
+            openWindow("https://example.com/", 800, 600)
+        }
+
+        openExampleWindow()
+    </script>
+</body>
+</html>
