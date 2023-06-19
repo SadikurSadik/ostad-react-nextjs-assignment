@@ -9,6 +9,8 @@
     <script>
         /* 
             a. Create a function that takes a date in the format "YYYY-MM-DD" as a parameter and returns the day of the week for that date. The function should use the Date object.
+
+            b. Implement the function to display the day of the week for the current date.
         */
         function getDayFromDate(date) {
             let days = [
@@ -25,14 +27,9 @@
             return days.length > dayNumber ? days[dayNumber] : "";
         }
 
-        /* b. Implement the function to display the day of the week for the current date. */
-        function getToday() {
-            let today = getDayFromDate(new Date().toJSON().slice(0, 10))
+        let today = getDayFromDate(new Date().toJSON().slice(0, 10))
 
-            document.write(`Today is <strong>${today}</strong>`)
-        }
-
-        getToday()
+        document.write(`Today is <strong>${today}</strong>`)
     </script>
 </body>
 </html>

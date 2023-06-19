@@ -53,11 +53,8 @@
         }
 
         /* b. Implement the function to display the user's browser name and version. */
-        function showBrowserName() {
-            const browser = detectBrowser()
-            document.write(`<h3>Browser Name: ${browser.name}<br>Version: ${browser.version}</h3>`)
-        }
-        showBrowserName()
+        const browser = detectBrowser()
+        document.write(`<h3>Browser Name: ${browser.name}<br>Version: ${browser.version}</h3>`)
     </script>
 </body>
 </html>
