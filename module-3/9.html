@@ -56,8 +56,8 @@
             <input type="password" id="password" >
         </div>
         <div class="form-group">
-            <label for="confirm-password">Confirm Password</label> <br>
-            <input type="password" id="confirm-password" >
+            <label for="confirmPassword">Confirm Password</label> <br>
+            <input type="password" id="confirmPassword" >
         </div>
         <div class="form-group">
             <button type="submit">Submit</button>
@@ -80,6 +80,7 @@
             h. Password should have a minimum length of 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit.
             i. Confirm Password should match the Password field.
             j. Display appropriate error messages for invalid fields.
+
         */
        let formElement = document.getElementById('userForm')
 
@@ -91,21 +92,13 @@
             return false
        }
        function resetValidation() {
-        let errorElements = document.getElementsByClassName('error')
-            console.log(errorElements);
-            for(let i=0; i<errorElements.length; i++) {
-                errorElements[i].remove()
-            }
-
             let formGroupElements = document.getElementsByClassName('has-error')
-            for(let i=0; i<formGroupElements.length; i++) {
+            for(let i=formGroupElements.length-1; i>=0; i--) {
+                formGroupElements[i].querySelector('.error').remove();
                 formGroupElements[i].classList.remove('has-error')
             }
-
-            console.log('finished')
        }
        function validateForm() {
-        console.log('started');
             let errors = {}
 
             // validate email field
@@ -139,8 +132,8 @@
             }
 
             // validate confirm password field
-            let confirmPassword = document.getElementById('confirm-password').value.trim()
-            if ( errors.password == undefined && confirmPassword !== password ) {
+            let confirmPassword = document.getElementById('confirmPassword').value.trim()
+            if ( confirmPassword !== password ) {
                 errors.confirmPassword = "Confirm password doesn't match."
             }
 
@@ -155,13 +148,18 @@
             let validationErrors = validateForm()
             for (let fieldName of Object.keys(validationErrors) ) {
                 let inputElement = document.getElementById(fieldName)
-                let formGroupElement = inputElement.closest('.form-group')
+                let formGroupElement = inputElement.parentElement
                 formGroupElement.classList.add('has-error')
 
                 let errorLabel = document.createElement("label")
                 errorLabel.innerText = validationErrors[fieldName]
                 errorLabel.className = 'error'
                 formGroupElement.appendChild(errorLabel)
+            }
+
+            if( Object.keys(validationErrors).length === 0 ) {
+                alert('Form submitted')
+                document.getElementById('userForm').submit()
             }
        })
     </script>
