@@ -15,21 +15,22 @@
 
             b. Send a JSON payload with the following data: { "name": "John Doe", "email": "johndoe@example.com" }.
         */
+       function handleResponse(data) {
+            console.log(data);
+       }
        function postData() {
-            fetch("https://api.example.com/submit", {
+            fetch("https://api.example.com/data", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ "name": "John Doe", "email": "johndoe@example.com" })
+                body: JSON.stringify({ "name": "John", "age": 30 })
             })
             .then(res => {
                 return res.json();
             })
-            .then(data => {
-                console.log(data);
-            });
+            .then(handleResponse);
        }
        postData()
     </script>

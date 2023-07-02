@@ -1,10 +1,11 @@
+import { cartButtonClickHandler } from './cart'
 import products from './../data/products.json' assert {type: 'json'}
 
-
 const showAllProducts = () => {
+
+
     let productListWrapperElement = document.getElementById('productListWrapper')
-    // productListWrapperElement.innerHTML = ''
-    let productElement = '';
+    let productElement = ''
 
     products.forEach((item) => {
          productElement += `<div class="col-md-4 col-sm-6 mt-4">
@@ -16,15 +17,51 @@ const showAllProducts = () => {
             
             <h6>${item.name}</h6>
             
-            <div style="display: flex; flex-flow: row; justify-content: space-between;">
-            <span class="item">$ <strong>${item.price}</strong></span>
-            <button class="item btn btn-primary">Add to cart</button>
+            <div class="d-flex justify-content-between">
+                <span class="item">$ <strong>${item.price}</strong></span>
+                <div>
+                    <select class="qty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button class="item btn btn-sm btn-primary addToCartBtn" data-id="${item.ID}">Add to cart</button>
+                </div>
             </div>
         </div>
     </div>`
     })
 
-    productListWrapperElement.innerHTML = productElement
+    productListWrapperElement.innerHTML = productElement;
+
+    addToCartButtonClickLister();
+
+    
 }
 
-showAllProducts();
+const addToCartButtonClickLister = () => {
+    let elements = document.querySelectorAll(".addToCartBtn");
+
+    elements.forEach((element) => {
+        element.addEventListener('click', (evt) => {
+            const qtyElement = evt.target.parentElement.querySelector('.qty');
+        
+            cartButtonClickHandler(evt, qtyElement.options[qtyElement.selectedIndex].value)
+
+            // reset quantity to 1
+            qtyElement.value = 1
+        });
+    })
+}
+
+
+
+
+export {showAllProducts, products} ;
