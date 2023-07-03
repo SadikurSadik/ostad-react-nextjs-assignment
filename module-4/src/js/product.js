@@ -1,14 +1,12 @@
-import { cartButtonClickHandler } from './cart'
-import products from './../data/products.json' assert {type: 'json'}
+import { cartButtonClickHandler } from "./cart";
+import products from "./../data/products.json" assert { type: "json" };
 
 const showAllProducts = () => {
+  let productListWrapperElement = document.getElementById("productListWrapper");
+  let productElement = "";
 
-
-    let productListWrapperElement = document.getElementById('productListWrapper')
-    let productElement = ''
-
-    products.forEach((item) => {
-         productElement += `<div class="col-md-4 col-sm-6 mt-4">
+  products.forEach((item) => {
+    productElement += `<div class="col-md-4 col-sm-6 mt-4">
         <div class="card p-3" style="border: 2px solid #CCC;">
 
             <div class="d-flex justify-content-between align-items-center mb-4 ">
@@ -36,32 +34,30 @@ const showAllProducts = () => {
                 </div>
             </div>
         </div>
-    </div>`
-    })
+    </div>`;
+  });
 
-    productListWrapperElement.innerHTML = productElement;
+  productListWrapperElement.innerHTML = productElement;
 
-    addToCartButtonClickLister();
-
-    
-}
+  addToCartButtonClickLister();
+};
 
 const addToCartButtonClickLister = () => {
-    let elements = document.querySelectorAll(".addToCartBtn");
+  let elements = document.querySelectorAll(".addToCartBtn");
 
-    elements.forEach((element) => {
-        element.addEventListener('click', (evt) => {
-            const qtyElement = evt.target.parentElement.querySelector('.qty');
-        
-            cartButtonClickHandler(evt, qtyElement.options[qtyElement.selectedIndex].value)
+  elements.forEach((element) => {
+    element.addEventListener("click", (evt) => {
+      const qtyElement = evt.target.parentElement.querySelector(".qty");
 
-            // reset quantity to 1
-            qtyElement.value = 1
-        });
-    })
-}
+      cartButtonClickHandler(
+        evt,
+        qtyElement.options[qtyElement.selectedIndex].value
+      );
 
+      // reset quantity to 1
+      qtyElement.value = 1;
+    });
+  });
+};
 
-
-
-export {showAllProducts, products} ;
+export { showAllProducts, products };

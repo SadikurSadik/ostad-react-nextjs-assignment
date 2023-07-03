@@ -2,6 +2,10 @@ body {
     background-color: #E8E8E8 !important;
 }
 
+#cartItems ul {
+    padding-left: 0rem;
+}
+
 #cartItems ul li {
     list-style: none;
     border-bottom: 1px solid #CCC;
@@ -9,4 +13,17 @@ body {
 
 #cartItems .cartItems {
     width: 100%;
+}
+
+.decremnet {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.increment {
+    margin-left: 5px;
+}
+
+#discountInput {
+    width: 100px;
 }
