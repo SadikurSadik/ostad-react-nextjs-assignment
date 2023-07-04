@@ -6,7 +6,7 @@ const showAllProducts = () => {
   let productElement = "";
 
   products.forEach((item) => {
-    productElement += `<div class="col-md-4 col-sm-6 mt-4">
+    productElement += `<div class="col-lg-4 col-md-6 mt-4">
         <div class="card p-3" style="border: 2px solid #CCC;">
 
             <div class="d-flex justify-content-between align-items-center mb-4 ">
