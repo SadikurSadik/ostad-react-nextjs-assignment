@@ -15,10 +15,10 @@ const showAllProducts = () => {
             
             <h6>${item.name}</h6>
             
-            <div class="d-flex justify-content-between">
-                <span class="item">$ <strong>${item.price}</strong></span>
-                <div>
-                    <select class="qty">
+            <div class="d-flex flex-xl-row flex-lg-column justify-content-between align-items-center">
+                <span class="item mb-lg-2 mb-xl-0">$ <strong>${item.price}</strong></span>
+                <div class="d-flex">
+                    <select class="qty form-select me-2">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -30,7 +30,7 @@ const showAllProducts = () => {
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
-                    <button class="item btn btn-sm btn-primary addToCartBtn" data-id="${item.ID}">Add to cart</button>
+                    <button class="item btn btn-sm btn-primary addToCartBtn text-nowrap" data-id="${item.ID}">Add to cart</button>
                 </div>
             </div>
         </div>

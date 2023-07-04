@@ -2,10 +2,6 @@ body {
     background-color: #E8E8E8 !important;
 }
 
-select.qty {
-    height: 30px;
-}
-
 #cartItems ul {
     padding-left: 0rem;
 }
