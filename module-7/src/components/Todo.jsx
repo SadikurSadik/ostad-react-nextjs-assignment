@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Item from "./Item";
 
 export default function Todo() {
   const [todos, setTodos] = useState([]);
@@ -62,27 +63,12 @@ export default function Todo() {
           <ul style={{ listStyle: "none", padding: "0" }}>
             {todos.map((item) => {
               return (
-                <li
-                  style={{ lineHeight: "30px", fontSize: "18px" }}
-                  className="mt-2"
+                <Item
                   key={item.id}
-                  data-id={item.id}
-                >
-                  <input
-                    onClick={() => toggleIsComplete(item.id)}
-                    className="me-2"
-                    type="checkbox"
-                    checked={item.is_completed}
-                  />
-                  {item.is_completed && <del>{item.task}</del>}
-                  {!item.is_completed && item.task}
-                  <button
-                    className="btn btn-sm btn-outline-danger float-end"
-                    onClick={() => deleteTodo(item.id)}
-                  >
-                    x
-                  </button>
-                </li>
+                  item={item}
+                  toggleIsComplete={toggleIsComplete}
+                  deleteTodo={deleteTodo}
+                />
               );
             })}
           </ul>
