@@ -1,35 +1,32 @@
-import React from "react";
-import HomeCardItem from "../components/HomeCardItem";
+import React, { useState } from "react";
+import Form from "../components/Form";
+import ItemList from "../components/ItemList";
 import Layout from "../layout/Layout";
 
 const Income = () => {
-  const item = {
-    title: "Total Income",
-    amount: 0,
-    icon: "",
-    bg_color: "bg-green-600",
-    desc: "Total Income of this month.",
+  const [incomes, setIncomes] = useState([]);
+
+  const addData = (income) => {
+    setIncomes((prevData) => [...prevData, income]);
   };
+
+  const removeData = (index) => {
+    let newData = [...incomes];
+    newData.splice(index, 1);
+    setExpenses(newData);
+  };
+
   return (
     <Layout>
-      <div className="flex justify-center mt-10">
-        <div className="card w-96 bg-base-100 shadow">
-          <HomeCardItem item={item} />
-          <div className="card-body items-center text-center">
-            <input
-              type="text"
-              placeholder="Income Detail"
-              className="input input-bordered input-primary w-full max-w-xs"
-            />
-            <input
-              type="number"
-              placeholder="Amount"
-              className="input input-bordered input-primary w-full max-w-xs"
-            />
-            <div className="flex items-end">
-              <button className="btn btn-sm btn-primary">Submit</button>
-            </div>
-          </div>
+      <div className="flex justify-center">
+        <div className="w-1/2 p-5 bg-slate-200 rounded mt-10">
+          <h1 className="text-black text-lg font-semibold">Income Detail</h1>
+          <Form addData={addData} />
+          {incomes.length ? (
+            <ItemList removeData={removeData} items={incomes} />
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </Layout>

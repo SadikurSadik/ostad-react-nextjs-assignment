@@ -4,9 +4,10 @@ const Form = ({ addData, removeData }) => {
   const [desc, setDesc] = useState("");
   const [amount, setAmount] = useState("");
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
     if (desc && amount) {
-      addData({ desc: desc, amount: amount });
+      addData({ desc: desc.trim(), amount: amount });
       setDesc("");
       setAmount("");
     }
@@ -23,10 +24,11 @@ const Form = ({ addData, removeData }) => {
             Description
           </label>
           <input
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-white"
             type="text"
-            placeholder="where you spend"
+            placeholder="Description"
             onChange={(e) => setDesc(e.target.value)}
+            value={desc}
           />
         </div>
         <div className="mb-6 text-left m-5">
@@ -34,10 +36,11 @@ const Form = ({ addData, removeData }) => {
             Amount
           </label>
           <input
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline dark:bg-white"
             type="number"
-            placeholder="300"
-            onChange={(e) => setAmount(e.target.value)}
+            placeholder="Amount"
+            onChange={(e) => setAmount(parseFloat(e.target.value))}
+            value={amount}
           />
         </div>
         <div className="flex items-center justify-between m-5">
