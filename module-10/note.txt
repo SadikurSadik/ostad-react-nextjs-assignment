@@ -1,0 +1,18 @@
+next.config.js: This is a configuration file for customizing Next.js behavior.
+
+public: This is where we can place static assets like images, fonts, and other files that should be publicly accessible. These assets can be referenced using the / path in our code.
+
+.gitignore: It's for ignoring files and folder to git version control.
+
+.next: This is the build folder which we need to deploy in production. We can change the build folder name from next.config.js file.
+
+app: It's the main folder where we write our code. Application Router indicates this folder.
+
+page.js: This is the file which serve for specific routing. In the app directory there is one page.js file which will serve for application home page.
+
+layout.js: Layout page
+
+not-found.js: Not found Page
+
+error.js: Error Page.
+
